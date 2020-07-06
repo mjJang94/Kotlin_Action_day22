@@ -109,3 +109,7 @@ fun createWuthCustomAttributes(context: Context) =
 
 이렇게 간결하게 사용할 수 있는데, 새로운 TextView인스턴스를 만들고 즉시 그 인스턴스를 apply에 넘긴다. apply에 전달된 람다 안에서는 TextView가 수신 객체가 된다.   
 람다를 실행하고 나면 apply는 람다에 의해 초기화된 TextView 인스턴스를 반환하고 그 인스턴스는 함수의 결과가 된다.
+
+
+https://www.youtube.com/watch?v=SyqyRv6NS_U
+https://www.youtube.com/watch?v=nxKfi-6EtmY
