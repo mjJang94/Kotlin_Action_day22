@@ -21,8 +21,8 @@ fun alphabet(): String {
 >>> println(alphabet())
 ABCDEF....WXYZ
 Now I know the alphabet!
-</pre>
 </code>
+</pre>
 
 위 코드를 보면 result에 대해 다른 여러 메소드를 호출하면서 매번 result를 반복적으로 사용하고 있다. 이 코드정도 반복은 괜찮은데, 코드가 엄청 길어지거나 result가 엄청많이 불린다면 분명 보기 좋지 않은 코드가 될 것 같다. 이제 with를 사용하여 바꿔보자.
 
@@ -36,8 +36,8 @@ fun alphabet(): String{
     }
   append("\nNow I know the alphabet!")
   this.toString()
-</pre>
 </code>
+</pre>
 
 with문을 들여다보면 실제로는 파라미터를 2개 갖는 함수이다. 첫번째 파람은 stringBuilder이고, 두번째 파람은 람다이다.   
 람다를 괄호 밖으로 빼내는 관례를 사용함에 따라 전체 함수 호출이 언어가 제공하는 특별 구문처럼 보인다. 물론 이 방식 대신 with(stringBulder, {...})라고 쓸 수 있지만 지저분해진다.   
@@ -51,8 +51,8 @@ with의 생김새
 inline fun <T, R> with(receiver: T, block: T.() -> R): R {
     return receiver.block()
 }
-</pre>
 </code>
+</pre>
 
 다른 예제의 with
 <pre>
@@ -64,8 +64,8 @@ class Person {
 val person: Person = getPerson()
 print(person.name)
 print(person.age)
-</pre>
 </code>
+</pre>
 to
 <pre>
 <code>
@@ -74,8 +74,8 @@ with(person) {
     print(name)
     print(age)
 }
-</pre>
 </code>
+</pre>
 
 # apply 함수
 apply함수는 with와 거의 같다. 유일한 차이점은 apply는 항상 자신에게 전달된 객체를 반환한다는 점 뿐이다.
@@ -88,8 +88,8 @@ fun alphabet() = Stringbulder().apply {
    
    append("\nNow I know the alphabet!")
 }.toString()
-</pre>
 </code>
+</pre>
 
 apply는 확장 함수로 수신 객체가 전달받은 람다의 수신객체가 된다.   
 이 함수에서는 apply를 실행한 결과는 StringBuilder 객체이다. 따라서 그 객체의 toString을 호출해서 String타입의 객체를 얻을 수 있다.   
@@ -104,8 +104,8 @@ fun createWuthCustomAttributes(context: Context) =
     textSize = 20.0
     setPadding(10, 0, 0, 0)
   }
-</pre>
 </code>
+</pre>
 
 이렇게 간결하게 사용할 수 있는데, 새로운 TextView인스턴스를 만들고 즉시 그 인스턴스를 apply에 넘긴다. apply에 전달된 람다 안에서는 TextView가 수신 객체가 된다.   
 람다를 실행하고 나면 apply는 람다에 의해 초기화된 TextView 인스턴스를 반환하고 그 인스턴스는 함수의 결과가 된다.
